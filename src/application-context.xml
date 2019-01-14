@@ -6,4 +6,5 @@
 
    <bean id = "emailservice" class = "com.applicationcontext.EmailService"/>
 <!--    <bean id = "smsService" class = "com.applicationcontext.SMSService"/> -->
+	<bean id = "service" class = "com.DI.constructor.MessgaeServiceImpl"/>
 </beans>
