@@ -1,5 +1,6 @@
 package com.AOP.Example;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -23,8 +24,10 @@ public class Logging {
 	}
 	
 	@Around("selectAll()")
-	public void aroundAdvice(){
+	public void aroundAdvice(ProceedingJoinPoint jointpoint) throws Throwable{
 		System.out.println("aroundAdvice.");
+		jointpoint.proceed();
+		System.out.println("After: aroundAdvice");
 	}
 	
 	@AfterReturning("selectAll()")

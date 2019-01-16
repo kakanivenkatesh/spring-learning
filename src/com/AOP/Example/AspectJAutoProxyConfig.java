@@ -1,4 +1,4 @@
-package com.applicationcontext;
+package com.AOP.Example;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,11 +6,16 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @EnableAspectJAutoProxy
-public class JavaBasedConfig {
+public class AspectJAutoProxyConfig {
+	
+	@Bean	
+	  public UserAspect userAspect(){
+		 return new UserAspect();
+	  }
 	
 	@Bean
-	public SMSService smsservice(){
-		return new SMSService();
-	}
+	  public UserService userService(){
+		 return new UserService();
+	  }
 
 }

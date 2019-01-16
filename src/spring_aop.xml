@@ -17,6 +17,8 @@
   </bean>
  
  <bean id = "logging" class = "com.AOP.Example.Logging"/> 
+ <bean id = "service" class = "com.AOP.Example.UserService"/> 
+ <bean id = "aspect" class = "com.AOP.Example.UserAspect"/> 
  
    
 </beans>
