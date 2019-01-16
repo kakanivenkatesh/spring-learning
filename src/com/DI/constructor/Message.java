@@ -8,8 +8,9 @@ public class Message {
 
 	private MessgaeService service;
 	
+	
 	@Autowired
-	void Message(MessgaeService service){
+	Message(MessgaeService service){
 		this.service= service;
 	}
 	
