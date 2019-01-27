@@ -11,10 +11,10 @@ public class CandidateSampleApp {
 
 		      CandidateJDBCTemplate candidateJDBCTemplate = (CandidateJDBCTemplate)context.getBean("candidateJDBCTemplate");
 		      
-		      System.out.println("creating record" );
+		      /*System.out.println("creating record" );
 		      candidateJDBCTemplate.create("Venki", "test@gmail.com");
 		      candidateJDBCTemplate.create("Raja", "test1@gmail.com");
-		      candidateJDBCTemplate.create("Srinu", "tes2@gmail.com");
+		      candidateJDBCTemplate.create("Srinu", "tes2@gmail.com");*/
 
 		      System.out.println("listing records" );
 		      List<Candidate> candidates = candidateJDBCTemplate.listCandidates();
@@ -23,8 +23,18 @@ public class CandidateSampleApp {
 		         System.out.print("Name : " + record.getName() );
 		         System.out.println("Email : " + record.getEmail());
 		      } 
-		      candidateJDBCTemplate.update("Venki updated", "test@gmail.com");
-		      candidateJDBCTemplate.delete("test@gmail.com");
+		      
+		      //ResultSetExtractor 
+		      List<Candidate> candidatesinfo= candidateJDBCTemplate.listCandidatesInfo();
+		      for (Candidate candidate : candidatesinfo) {
+		    	  System.out.print("Candidate Name : " + candidate.getName() );
+			      System.out.println(" Candidate Email : " + candidate.getEmail());
+			}
+		      
+		      /*candidateJDBCTemplate.update("Venki updated", "test@gmail.com");
+		      candidateJDBCTemplate.delete("test@gmail.com");*/
+		      
+		      candidateJDBCTemplate.insertCandidateInfoByPreparedStatement(new Candidate(1, "Venki", "venki@gmail.com"));
 		      
 		   }
 }

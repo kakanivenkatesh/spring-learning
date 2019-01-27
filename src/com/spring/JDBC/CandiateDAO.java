@@ -10,4 +10,5 @@ public interface CandiateDAO {
 	public List<Candidate> listCandidates();
 	public void delete(String email);
 	public void update(String email, String name);
+	 
 }
